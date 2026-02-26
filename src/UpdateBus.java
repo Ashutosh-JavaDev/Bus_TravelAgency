@@ -119,7 +119,7 @@ public class UpdateBus extends JFrame implements ActionListener {
         TypeSave.setOpaque(true);
 
         add(TypeSave);
-        nameSave.addActionListener(this);
+        TypeSave.addActionListener(this);
         // Default
         setLocation(600, 200);
         setLayout(null);
