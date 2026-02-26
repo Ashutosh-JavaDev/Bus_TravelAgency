@@ -17,7 +17,7 @@ public class CreateBus extends JFrame implements ActionListener {
     JLabel title, Number, Name, Type;
     JTextField numberField, nameField;
     JRadioButton normal, ac;
-    JButton save,edit;
+    JButton save, edit;
 
     public CreateBus() {
         setTitle("LNCT Bus Travel");
@@ -106,48 +106,49 @@ public class CreateBus extends JFrame implements ActionListener {
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-    
+
         if (e.getSource() == save) {
-    
+
             String namefield = nameField.getText().trim();
             String numberfield = numberField.getText().trim();
-    
+
             if (namefield.isEmpty() || numberfield.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "All fields are required");
                 return;
             }
-    
+
             String choice = normal.isSelected() ? "Normal" : "AC";
-    
+
             try (Connection conn = Database.getConnection();
-                 PreparedStatement ps = conn.prepareStatement(
-                         "INSERT INTO bus(Number, Name, Bus_Type) VALUES (?, ?, ?)")) {
-    
+                    PreparedStatement ps = conn.prepareStatement(
+                            "INSERT INTO bus(Number, Name, Bus_Type) VALUES (?, ?, ?)")) {
+
                 ps.setString(1, numberfield);
                 ps.setString(2, namefield);
                 ps.setString(3, choice);
-    
+
                 int rows = ps.executeUpdate();
-    
+
                 if (rows > 0) {
                     JOptionPane.showMessageDialog(this, "Inserted Successfully");
-    
+
                     // Clear fields after insert
                     nameField.setText("");
                     numberField.setText("");
                     normal.setSelected(true);
                 }
-    
+
             } catch (SQLException ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Database Error: " + ex.getMessage());
             }
         }
-        if(e.getSource()==edit){
+        if (e.getSource() == edit) {
             setVisible(false);
-           new UpdateBus().setVisible(true);
+            new UpdateBus().setVisible(true);
         }
     }
 

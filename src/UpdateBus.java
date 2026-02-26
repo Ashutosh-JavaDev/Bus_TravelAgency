@@ -13,12 +13,23 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UpdateBus extends JFrame implements ActionListener{
-    UpdateBus(){
-        
+public class UpdateBus extends JFrame implements ActionListener {
+    JLabel title,name,number,type;
+    JTextField namField,numField,typeField;
+    UpdateBus() {
+        setTitle("Update Value");
+
+        // Default
+        setLocation(600, 200);
+        setLayout(null);
+        setSize(800, 650);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
     }
+
     @Override
-    public void actionPerformed(ActionEvent ae){
+    public void actionPerformed(ActionEvent ae) {
 
     }
 }
