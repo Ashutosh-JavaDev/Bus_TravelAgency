@@ -18,7 +18,10 @@ public class UpdateBus extends JFrame implements ActionListener {
     JTextField namField,numField,typeField;
     UpdateBus() {
         setTitle("Update Value");
-
+        title=new JLabel("Update Values");
+        title.setBounds(300, 5, 200, 20);
+        title.setFont(new Font("Arial", Font.BOLD, 15));
+        add(title);
         // Default
         setLocation(600, 200);
         setLayout(null);
