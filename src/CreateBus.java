@@ -17,7 +17,7 @@ public class CreateBus extends JFrame implements ActionListener {
     JLabel title, Number, Name, Type;
     JTextField numberField, nameField;
     JRadioButton normal, ac;
-    JButton save;
+    JButton save,edit;
 
     public CreateBus() {
         setTitle("LNCT Bus Travel");
@@ -69,7 +69,7 @@ public class CreateBus extends JFrame implements ActionListener {
         // Optional: set default selection
         normal.setSelected(true);
         // Button
-        save = new JButton("Save");
+        save = new JButton("SAVE");
 
         save.setBounds(20, 280, 100, 30);
         save.setFont(new Font("Arial", Font.BOLD, 15));
@@ -84,6 +84,21 @@ public class CreateBus extends JFrame implements ActionListener {
 
         add(save);
         save.addActionListener(this);
+        // Edit
+        edit = new JButton("EDIT");
+
+        edit.setBounds(200, 280, 100, 30);
+        edit.setFont(new Font("Arial", Font.BOLD, 15));
+        edit.setForeground(Color.WHITE);
+        edit.setBackground(Color.BLACK);
+
+        edit.setFocusPainted(false);
+        edit.setBorderPainted(false);
+        edit.setContentAreaFilled(true);
+        edit.setOpaque(true);
+
+        add(edit);
+        edit.addActionListener(this);
         // Default
         setLocation(600, 200);
         setLayout(null);
