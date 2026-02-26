@@ -170,7 +170,7 @@ public class UpdateBus extends JFrame implements ActionListener {
          group.add(Type);
          
          // Default selection
-         normal.setSelected(true);
+         Name.setSelected(true);
          
         // Default
         setLocation(600, 200);
