@@ -50,6 +50,38 @@ public class UpdateBus extends JFrame implements ActionListener {
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
+    public void NUMBER() {
+        // name
+        number = new JLabel("Enter New Bus Number");
+        number.setBounds(10, 30, 200, 25);
+        number.setFont(new Font("Roboto", Font.BOLD, 15));
+        add(number);
+        numField = new JTextField();
+        numField.setBounds(10, 60, 150, 25);
+        numField.setFont(new Font("Roboto", Font.BOLD, 10));
+        add(numField);
+        // Save
+        numberSave = new JButton("Save");
+
+        numberSave.setBounds(10, 100, 100, 30);
+        numberSave.setFont(new Font("Arial", Font.BOLD, 15));
+        numberSave.setForeground(Color.WHITE);
+        numberSave.setBackground(Color.BLACK);
+
+        numberSave.setFocusPainted(false);
+        numberSave.setBorderPainted(false);
+        numberSave.setContentAreaFilled(true);
+        numberSave.setOpaque(true);
+
+        add(numberSave);
+        numberSave.addActionListener(this);
+        // Default
+        setLocation(600, 200);
+        setLayout(null);
+        setSize(300, 150);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
 
     UpdateBus() {
         setTitle("Update Value");
