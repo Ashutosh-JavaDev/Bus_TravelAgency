@@ -1,6 +1,8 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Types;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -104,19 +106,19 @@ public class UpdateBus extends JFrame implements ActionListener {
         group.add(normal);
         group.add(ac);
         // Save
-        nameSave = new JButton("Save");
+        TypeSave = new JButton("Save");
 
-        nameSave.setBounds(10, 100, 100, 30);
-        nameSave.setFont(new Font("Arial", Font.BOLD, 15));
-        nameSave.setForeground(Color.WHITE);
-        nameSave.setBackground(Color.BLACK);
+        TypeSave.setBounds(10, 100, 100, 30);
+        TypeSave.setFont(new Font("Arial", Font.BOLD, 15));
+        TypeSave.setForeground(Color.WHITE);
+        TypeSave.setBackground(Color.BLACK);
 
-        nameSave.setFocusPainted(false);
-        nameSave.setBorderPainted(false);
-        nameSave.setContentAreaFilled(true);
-        nameSave.setOpaque(true);
+        TypeSave.setFocusPainted(false);
+        TypeSave.setBorderPainted(false);
+        TypeSave.setContentAreaFilled(true);
+        TypeSave.setOpaque(true);
 
-        add(nameSave);
+        add(TypeSave);
         nameSave.addActionListener(this);
         // Default
         setLocation(600, 200);
