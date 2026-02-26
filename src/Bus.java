@@ -5,7 +5,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Bus extends JFrame implements ActionListener {
+    JLabel ID,Number,Pickup,Destination,DateofTravel,available;
+    JTextField idField,numberField,pickupField,destinationField,dateofTravelField,availableField;
+    JButton save;
     public Bus() {
+        setTitle("LNCT Bus Travel");
+
+        add(rootPane);
+        // Default
         setLayout(null);
         setSize(800,500);
         setLocation(600, 200);
