@@ -12,46 +12,37 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UpdateBus extends JFrame implements ActionListener {
-    JLabel title, name, number, type, selection, id;
+public class DeleteBus extends JFrame implements ActionListener {
+    JLabel title, id;
     JTextField namField, numField, idField;
     JRadioButton normal, ac, Name, Number, Type, All;
-    JButton nameSave, numberSave, TypeSave, Save,Allsa;
+    JButton  Save,Allsa;
 
-    public void NAME() {
-        // name
-        name = new JLabel("Enter New Bus Name");
-        name.setBounds(10, 30, 180, 25);
-        name.setFont(new Font("Roboto", Font.BOLD, 15));
-        add(name);
-        namField = new JTextField();
-        namField.setBounds(10, 60, 150, 25);
-        namField.setFont(new Font("Roboto", Font.BOLD, 10));
-        add(namField);
+    public void AllDetail() {
         // ID
         id = new JLabel("Enter Bus ID");
-        id.setBounds(10, 90, 180, 25);
+        id.setBounds(10, 20, 180, 25);
         id.setFont(new Font("Roboto", Font.BOLD, 15));
         add(id);
         idField = new JTextField();
-        idField.setBounds(10, 115, 150, 25);
+        idField.setBounds(10,55, 150, 25);
         idField.setFont(new Font("Roboto", Font.BOLD, 10));
         add(idField);
         // Save
-        nameSave = new JButton("Save");
+        Allsa = new JButton("Save");
 
-        nameSave.setBounds(10, 170, 100, 30);
-        nameSave.setFont(new Font("Arial", Font.BOLD, 15));
-        nameSave.setForeground(Color.WHITE);
-        nameSave.setBackground(Color.BLACK);
+        Allsa.setBounds(10, 170, 100, 30);
+        Allsa.setFont(new Font("Arial", Font.BOLD, 15));
+        Allsa.setForeground(Color.WHITE);
+        Allsa.setBackground(Color.BLACK);
 
-        nameSave.setFocusPainted(false);
-        nameSave.setBorderPainted(false);
-        nameSave.setContentAreaFilled(true);
-        nameSave.setOpaque(true);
+        Allsa.setFocusPainted(false);
+        Allsa.setBorderPainted(false);
+        Allsa.setContentAreaFilled(true);
+        Allsa.setOpaque(true);
 
-        add(nameSave);
-        nameSave.addActionListener(this);
+        add(Allsa);
+        Allsa.addActionListener(this);
         // Default
         setLocation(600, 200);
         setLayout(null);
@@ -234,7 +225,7 @@ public class UpdateBus extends JFrame implements ActionListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    UpdateBus() {
+    DeleteBus() {
         setTitle("Update Value");
         title = new JLabel("Update Values");
         title.setBounds(80, 5, 200, 30);
@@ -315,7 +306,7 @@ public class UpdateBus extends JFrame implements ActionListener {
             }
         }
         try (Connection connection = Database.getConnection();) {
-            String query = "update bus set Name=? where ID=?";
+            String query = "delete from bus where ID=?";
             PreparedStatement Nam = connection.prepareStatement(query);
             if (ae.getSource() == nameSave) {
                 String namefield = namField.getText();
@@ -414,6 +405,6 @@ public class UpdateBus extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new UpdateBus();
+        new DeleteBus();
     }
 }
