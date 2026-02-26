@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 public class UpdateBus extends JFrame implements ActionListener {
     JLabel title, name, number, type;
     JTextField namField, numField;
-    JRadioButton typeRadioButton;
+    JRadioButton normal,ac;
     JButton nameSave, numberSave, TypeSave, Save;
 
     public void NAME() {
@@ -89,10 +89,20 @@ public class UpdateBus extends JFrame implements ActionListener {
         type.setBounds(10, 30, 180, 25);
         type.setFont(new Font("Roboto", Font.BOLD, 15));
         add(type);
-        typeRadioButton = new JRadioButton();
-        typeRadioButton.setBounds(10, 60, 150, 25);
-        typeRadioButton.setFont(new Font("Roboto", Font.BOLD, 10));
-        add(typeRadioButton);
+        normal = new JRadioButton();
+        normal.setBounds(10, 60, 150, 25);
+        normal.setFont(new Font("Roboto", Font.BOLD, 10));
+        normal.setOpaque(true);
+        add(normal);
+        ac = new JRadioButton();
+        ac.setBounds(10, 60, 150, 25);
+        ac.setFont(new Font("Roboto", Font.BOLD, 10));
+        ac.setOpaque(true);
+        add(ac);
+        // Button group
+        ButtonGroup group=new ButtonGroup();
+        group.add(normal);
+        group.add(ac);
         // Save
         nameSave = new JButton("Save");
 
@@ -122,7 +132,7 @@ public class UpdateBus extends JFrame implements ActionListener {
         title.setBounds(300, 5, 200, 20);
         title.setFont(new Font("Arial", Font.BOLD, 15));
         add(title);
-        NAME();
+        TYPE();
         // Default
         // setLocation(600, 200);
         // setLayout(null);
