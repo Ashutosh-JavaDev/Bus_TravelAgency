@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.Scanner;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,8 +17,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class UpdateBus extends JFrame implements ActionListener {
-    JLabel title, name, number, type, selection;
-    JTextField namField, numField;
+    JLabel title, name, number, type, selection, id;
+    JTextField namField, numField, idField;
     JRadioButton normal, ac, Name, Number, Type, All;
     JButton nameSave, numberSave, TypeSave, Save;
 
@@ -31,10 +32,19 @@ public class UpdateBus extends JFrame implements ActionListener {
         namField.setBounds(10, 60, 150, 25);
         namField.setFont(new Font("Roboto", Font.BOLD, 10));
         add(namField);
+        // ID
+        id = new JLabel("Enter Bus ID");
+        id.setBounds(10, 90, 180, 25);
+        id.setFont(new Font("Roboto", Font.BOLD, 15));
+        add(id);
+        idField = new JTextField();
+        idField.setBounds(10, 115, 150, 25);
+        idField.setFont(new Font("Roboto", Font.BOLD, 10));
+        add(idField);
         // Save
         nameSave = new JButton("Save");
 
-        nameSave.setBounds(10, 100, 100, 30);
+        nameSave.setBounds(10, 170, 100, 30);
         nameSave.setFont(new Font("Arial", Font.BOLD, 15));
         nameSave.setForeground(Color.WHITE);
         nameSave.setBackground(Color.BLACK);
@@ -49,7 +59,7 @@ public class UpdateBus extends JFrame implements ActionListener {
         // Default
         setLocation(600, 200);
         setLayout(null);
-        setSize(300, 150);
+        setSize(300, 250);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -64,10 +74,19 @@ public class UpdateBus extends JFrame implements ActionListener {
         numField.setBounds(10, 60, 150, 25);
         numField.setFont(new Font("Roboto", Font.BOLD, 10));
         add(numField);
+        // ID
+        id = new JLabel("Enter Bus ID");
+        id.setBounds(10, 90, 180, 25);
+        id.setFont(new Font("Roboto", Font.BOLD, 15));
+        add(id);
+        idField = new JTextField();
+        idField.setBounds(10, 115, 150, 25);
+        idField.setFont(new Font("Roboto", Font.BOLD, 10));
+        add(idField);
         // Save
         numberSave = new JButton("Save");
 
-        numberSave.setBounds(10, 100, 100, 30);
+        numberSave.setBounds(10, 170, 100, 30);
         numberSave.setFont(new Font("Arial", Font.BOLD, 15));
         numberSave.setForeground(Color.WHITE);
         numberSave.setBackground(Color.BLACK);
@@ -82,7 +101,7 @@ public class UpdateBus extends JFrame implements ActionListener {
         // Default
         setLocation(600, 200);
         setLayout(null);
-        setSize(300, 150);
+        setSize(300, 250);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -107,7 +126,15 @@ public class UpdateBus extends JFrame implements ActionListener {
         ac.setFont(new Font("Roboto", Font.BOLD, 12));
         ac.setOpaque(false);
         add(ac);
-
+        // ID
+        id = new JLabel("Enter Bus ID");
+        id.setBounds(10, 120, 180, 25);
+        id.setFont(new Font("Roboto", Font.BOLD, 15));
+        add(id);
+        idField = new JTextField();
+        idField.setBounds(10, 150, 150, 25);
+        idField.setFont(new Font("Roboto", Font.BOLD, 10));
+        add(idField);
         // Group
         ButtonGroup group = new ButtonGroup();
         group.add(normal);
@@ -118,7 +145,7 @@ public class UpdateBus extends JFrame implements ActionListener {
 
         // Save Button
         TypeSave = new JButton("Save");
-        TypeSave.setBounds(10, 130, 100, 30);
+        TypeSave.setBounds(10, 190, 100, 30);
         TypeSave.setFont(new Font("Arial", Font.BOLD, 14));
         TypeSave.setForeground(Color.WHITE);
         TypeSave.setBackground(Color.BLACK);
@@ -131,7 +158,7 @@ public class UpdateBus extends JFrame implements ActionListener {
         // Default
         setLocation(600, 200);
         setLayout(null);
-        setSize(300, 150);
+        setSize(300, 250);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -182,10 +209,18 @@ public class UpdateBus extends JFrame implements ActionListener {
 
         // Default selection
         normal.setSelected(true);
-
+        // ID
+        id = new JLabel("Enter Bus ID");
+        id.setBounds(10, 265, 180, 25);
+        id.setFont(new Font("Roboto", Font.BOLD, 15));
+        add(id);
+        idField = new JTextField();
+        idField.setBounds(10, 300, 150, 25);
+        idField.setFont(new Font("Roboto", Font.BOLD, 10));
+        add(idField);
         // Save Button
         TypeSave = new JButton("Save");
-        TypeSave.setBounds(10, 275, 100, 30);
+        TypeSave.setBounds(10, 355, 100, 30);
         TypeSave.setFont(new Font("Arial", Font.BOLD, 14));
         TypeSave.setForeground(Color.WHITE);
         TypeSave.setBackground(Color.BLACK);
@@ -198,7 +233,7 @@ public class UpdateBus extends JFrame implements ActionListener {
         // Default
         setLocation(600, 200);
         setLayout(null);
-        setSize(300, 350);
+        setSize(300, 400);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -256,7 +291,7 @@ public class UpdateBus extends JFrame implements ActionListener {
         Save.setOpaque(true);
         add(Save);
         Save.addActionListener(this);
-   
+
         // Default
         setLocation(600, 200);
         setLayout(null);
@@ -269,23 +304,89 @@ public class UpdateBus extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == Save) {
-    
+
             getContentPane().removeAll();
             repaint();
-    
+
             if (Name.isSelected()) {
                 NAME();
-            } 
-            else if (Number.isSelected()) {
+            } else if (Number.isSelected()) {
                 NUMBER();
-            } 
-            else if (Type.isSelected()) {
+            } else if (Type.isSelected()) {
                 TYPE();
-            } 
-            else if (All.isSelected()) {
+            } else if (All.isSelected()) {
                 ALL();
             }
         }
+        try (Connection connection = Database.getConnection();) {
+            String query = "update bus set Name=? where ID=?";
+            PreparedStatement Nam = connection.prepareStatement(query);
+            if (ae.getSource() == nameSave) {
+                String namefield = namField.getText();
+                String idfield = idField.getText();
+                if (namefield.isEmpty() || idfield.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "Fields not should be empty");
+                }
+                Nam.setString(1, namefield);
+                Nam.setInt(2, Integer.parseInt(idfield));
+                int result = Nam.executeUpdate();
+                if (result > 0) {
+                    JOptionPane.showMessageDialog(this, "Updated Successfully");
+
+                    // Clear fields after insert
+                    namField.setText("");
+                    idField.setText("");
+
+                }
+            }
+            String num = "update bus set Number=? where ID=?";
+            PreparedStatement Num = connection.prepareStatement(num);
+            if (ae.getSource() == numberSave) {
+                String numfield = numField.getText();
+                String idfield = idField.getText();
+                if (numfield.isEmpty() || idfield.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "Fields not should be empty");
+                }
+                Num.setString(1, numfield);
+                Num.setInt(2, Integer.parseInt(idfield));
+
+                int result = Num.executeUpdate();
+                if (result > 0) {
+                    JOptionPane.showMessageDialog(this, "Updated Successfully");
+
+                    // Clear fields after insert
+                    numField.setText("");
+                    idField.setText("");
+
+                }
+            }
+            String ty = "update bus set Bus_Type=? where ID=?";
+            PreparedStatement Ty = connection.prepareStatement(ty);
+            if (ae.getSource() == TypeSave) {
+                String choice = null;
+                String idfield = idField.getText();
+                if (normal.isSelected()) {
+                    choice = "Normal";
+                }
+                if (ac.isSelected()) {
+                    choice = "AC";
+                }
+                Ty.setString(1, choice);
+                Ty.setInt(2, Integer.parseInt(idfield));
+                int result = Ty.executeUpdate();
+                if (result > 0) {
+                    JOptionPane.showMessageDialog(this, "Updated Successfully");
+
+                    // Clear fields after insert
+                    normal.setSelected(true);
+                    idField.setText("");
+
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+
     }
 
     public static void main(String[] args) {
