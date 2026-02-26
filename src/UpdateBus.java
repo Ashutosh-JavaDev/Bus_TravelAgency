@@ -198,7 +198,7 @@ public class UpdateBus extends JFrame implements ActionListener {
         // Default
         setLocation(600, 200);
         setLayout(null);
-        setSize(300, 150);
+        setSize(300, 350);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -269,7 +269,22 @@ public class UpdateBus extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == Save) {
-
+    
+            getContentPane().removeAll();
+            repaint();
+    
+            if (Name.isSelected()) {
+                NAME();
+            } 
+            else if (Number.isSelected()) {
+                NUMBER();
+            } 
+            else if (Type.isSelected()) {
+                TYPE();
+            } 
+            else if (All.isSelected()) {
+                ALL();
+            }
         }
     }
 
