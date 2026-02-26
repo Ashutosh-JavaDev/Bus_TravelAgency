@@ -15,7 +15,8 @@ import java.awt.event.ActionListener;
 
 public class UpdateBus extends JFrame implements ActionListener {
     JLabel title, name, number, type;
-    JTextField namField, numField, typeField;
+    JTextField namField, numField;
+    JRadioButton typeRadioButton;
     JButton nameSave, numberSave, TypeSave, Save;
 
     public void NAME() {
@@ -75,6 +76,38 @@ public class UpdateBus extends JFrame implements ActionListener {
 
         add(numberSave);
         numberSave.addActionListener(this);
+        // Default
+        setLocation(600, 200);
+        setLayout(null);
+        setSize(300, 150);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+    public void TYPE() {
+        // name
+        type = new JLabel("Choose New Bus Type");
+        type.setBounds(10, 30, 180, 25);
+        type.setFont(new Font("Roboto", Font.BOLD, 15));
+        add(type);
+        typeRadioButton = new JRadioButton();
+        typeRadioButton.setBounds(10, 60, 150, 25);
+        typeRadioButton.setFont(new Font("Roboto", Font.BOLD, 10));
+        add(typeRadioButton);
+        // Save
+        nameSave = new JButton("Save");
+
+        nameSave.setBounds(10, 100, 100, 30);
+        nameSave.setFont(new Font("Arial", Font.BOLD, 15));
+        nameSave.setForeground(Color.WHITE);
+        nameSave.setBackground(Color.BLACK);
+
+        nameSave.setFocusPainted(false);
+        nameSave.setBorderPainted(false);
+        nameSave.setContentAreaFilled(true);
+        nameSave.setOpaque(true);
+
+        add(nameSave);
+        nameSave.addActionListener(this);
         // Default
         setLocation(600, 200);
         setLayout(null);
