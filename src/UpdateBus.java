@@ -18,7 +18,7 @@ import java.awt.event.ActionListener;
 public class UpdateBus extends JFrame implements ActionListener {
     JLabel title, name, number, type, selection;
     JTextField namField, numField;
-    JRadioButton normal, ac, Name, Number, Type,All;
+    JRadioButton normal, ac, Name, Number, Type, All;
     JButton nameSave, numberSave, TypeSave, Save;
 
     public void NAME() {
@@ -88,7 +88,7 @@ public class UpdateBus extends JFrame implements ActionListener {
     }
 
     public void TYPE() {
-        // name
+        // Type
         type = new JLabel("Choose New Bus Type");
         type.setBounds(10, 30, 200, 25);
         type.setFont(new Font("Roboto", Font.BOLD, 15));
@@ -119,6 +119,73 @@ public class UpdateBus extends JFrame implements ActionListener {
         // Save Button
         TypeSave = new JButton("Save");
         TypeSave.setBounds(10, 130, 100, 30);
+        TypeSave.setFont(new Font("Arial", Font.BOLD, 14));
+        TypeSave.setForeground(Color.WHITE);
+        TypeSave.setBackground(Color.BLACK);
+        TypeSave.setFocusPainted(false);
+        TypeSave.setBorderPainted(false);
+        TypeSave.setOpaque(true);
+
+        add(TypeSave);
+        TypeSave.addActionListener(this);
+        // Default
+        setLocation(600, 200);
+        setLayout(null);
+        setSize(300, 150);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+    // All
+    public void ALL() {
+        // Name
+        name = new JLabel("Enter New Bus Name");
+        name.setBounds(10, 40, 180, 25);
+        name.setFont(new Font("Roboto", Font.BOLD, 15));
+        add(name);
+        namField = new JTextField();
+        namField.setBounds(10, 70, 150, 25);
+        namField.setFont(new Font("Roboto", Font.BOLD, 10));
+        add(namField);
+        // Number
+        number = new JLabel("Enter New Bus Number");
+        number.setBounds(10, 105, 200, 25);
+        number.setFont(new Font("Roboto", Font.BOLD, 15));
+        add(number);
+        numField = new JTextField();
+        numField.setBounds(10, 135, 150, 25);
+        numField.setFont(new Font("Roboto", Font.BOLD, 10));
+        add(numField);
+        // Type
+        type = new JLabel("Choose New Bus Type");
+        type.setBounds(10, 170, 200, 25);
+        type.setFont(new Font("Roboto", Font.BOLD, 15));
+        add(type);
+        // Normal Button
+        normal = new JRadioButton("Normal");
+        normal.setBounds(10, 200, 120, 25);
+        normal.setFont(new Font("Roboto", Font.BOLD, 12));
+        normal.setOpaque(false);
+        add(normal);
+
+        // AC Button
+        ac = new JRadioButton("AC");
+        ac.setBounds(10, 230, 120, 25); // Different Y position
+        ac.setFont(new Font("Roboto", Font.BOLD, 12));
+        ac.setOpaque(false);
+        add(ac);
+
+        // Group
+        ButtonGroup group = new ButtonGroup();
+        group.add(normal);
+        group.add(ac);
+
+        // Default selection
+        normal.setSelected(true);
+
+        // Save Button
+        TypeSave = new JButton("Save");
+        TypeSave.setBounds(10, 275, 100, 30);
         TypeSave.setFont(new Font("Arial", Font.BOLD, 14));
         TypeSave.setForeground(Color.WHITE);
         TypeSave.setBackground(Color.BLACK);
@@ -189,6 +256,7 @@ public class UpdateBus extends JFrame implements ActionListener {
         Save.setOpaque(true);
         add(Save);
         Save.addActionListener(this);
+   
         // Default
         setLocation(600, 200);
         setLayout(null);
@@ -200,6 +268,12 @@ public class UpdateBus extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == Save) {
+
+        }
+    }
+
+    public static void main(String[] args) {
         new UpdateBus();
     }
 }
