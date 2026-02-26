@@ -383,6 +383,33 @@ public class UpdateBus extends JFrame implements ActionListener {
 
                 }
             }
+            String all = "update bus set Name=?,Number=?, Bus_Type=? where ID=?";
+            PreparedStatement ps = connection.prepareStatement(all);
+            if (ae.getSource() == All) {
+                String namefield=namField.getText();
+                String numberfield=numField.getText();
+                String choice = null;
+                String idfield = idField.getText();
+                if (normal.isSelected()) {
+                    choice = "Normal";
+                }
+                if (ac.isSelected()) {
+                    choice = "AC";
+                }
+                ps.setString(1, namefield);
+                ps.setString(2, numberfield);
+                ps.setString(3, choice);
+                ps.setInt(4, Integer.parseInt(idfield));
+                int result = ps.executeUpdate();
+                if (result > 0) {
+                    JOptionPane.showMessageDialog(this, "Updated Successfully");
+
+                    // Clear fields after insert
+                    normal.setSelected(true);
+                    idField.setText("");
+
+                }
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e);
         }
