@@ -20,7 +20,7 @@ public class UpdateBus extends JFrame implements ActionListener {
     JLabel title, name, number, type, selection, id;
     JTextField namField, numField, idField;
     JRadioButton normal, ac, Name, Number, Type, All;
-    JButton nameSave, numberSave, TypeSave, Save;
+    JButton nameSave, numberSave, TypeSave, Save,Allsa;
 
     public void NAME() {
         // name
@@ -219,17 +219,17 @@ public class UpdateBus extends JFrame implements ActionListener {
         idField.setFont(new Font("Roboto", Font.BOLD, 10));
         add(idField);
         // Save Button
-        TypeSave = new JButton("Save");
-        TypeSave.setBounds(10, 355, 100, 30);
-        TypeSave.setFont(new Font("Arial", Font.BOLD, 14));
-        TypeSave.setForeground(Color.WHITE);
-        TypeSave.setBackground(Color.BLACK);
-        TypeSave.setFocusPainted(false);
-        TypeSave.setBorderPainted(false);
-        TypeSave.setOpaque(true);
+        Allsa = new JButton("Save");
+        Allsa.setBounds(10, 355, 100, 30);
+        Allsa.setFont(new Font("Arial", Font.BOLD, 14));
+        Allsa.setForeground(Color.WHITE);
+        Allsa.setBackground(Color.BLACK);
+        Allsa.setFocusPainted(false);
+        Allsa.setBorderPainted(false);
+        Allsa.setOpaque(true);
 
-        add(TypeSave);
-        TypeSave.addActionListener(this);
+        add(Allsa);
+        Allsa.addActionListener(this);
         // Default
         setLocation(600, 200);
         setLayout(null);
@@ -383,11 +383,11 @@ public class UpdateBus extends JFrame implements ActionListener {
 
                 }
             }
-            String all = "update bus set Name=?,Number=?, Bus_Type=? where ID=?";
+            String all = "update bus set Number=?,Name=?, Bus_Type=? where ID=?";
             PreparedStatement ps = connection.prepareStatement(all);
-            if (ae.getSource() == All) {
-                String namefield=namField.getText();
-                String numberfield=numField.getText();
+            if (ae.getSource() == Allsa) {
+                String namefield = namField.getText();
+                String numberfield = numField.getText();
                 String choice = null;
                 String idfield = idField.getText();
                 if (normal.isSelected()) {
@@ -396,9 +396,10 @@ public class UpdateBus extends JFrame implements ActionListener {
                 if (ac.isSelected()) {
                     choice = "AC";
                 }
-                ps.setString(1, namefield);
-                ps.setString(2, numberfield);
+                ps.setString(1, numberfield);
+                ps.setString(2, namefield);
                 ps.setString(3, choice);
+
                 ps.setInt(4, Integer.parseInt(idfield));
                 int result = ps.executeUpdate();
                 if (result > 0) {
