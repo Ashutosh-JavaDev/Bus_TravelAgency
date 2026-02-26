@@ -16,9 +16,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class UpdateBus extends JFrame implements ActionListener {
-    JLabel title, name, number, type;
+    JLabel title, name, number, type,selection;
     JTextField namField, numField;
-    JRadioButton normal,ac;
+    JRadioButton normal,ac,Name,Number,Type;
     JButton nameSave, numberSave, TypeSave, Save;
 
     public void NAME() {
@@ -88,36 +88,42 @@ public class UpdateBus extends JFrame implements ActionListener {
     public void TYPE() {
         // name
         type = new JLabel("Choose New Bus Type");
-        type.setBounds(10, 30, 180, 25);
+        type.setBounds(10, 30, 200, 25);
         type.setFont(new Font("Roboto", Font.BOLD, 15));
         add(type);
-        normal = new JRadioButton();
-        normal.setBounds(10, 60, 150, 25);
-        normal.setFont(new Font("Roboto", Font.BOLD, 10));
-        normal.setOpaque(true);
+        
+        // Normal Button
+        normal = new JRadioButton("Normal");
+        normal.setBounds(10, 60, 120, 25);
+        normal.setFont(new Font("Roboto", Font.BOLD, 12));
+        normal.setOpaque(false);
         add(normal);
-        ac = new JRadioButton();
-        ac.setBounds(10, 60, 150, 25);
-        ac.setFont(new Font("Roboto", Font.BOLD, 10));
-        ac.setOpaque(true);
+        
+        // AC Button
+        ac = new JRadioButton("AC");
+        ac.setBounds(10, 90, 120, 25);   // Different Y position
+        ac.setFont(new Font("Roboto", Font.BOLD, 12));
+        ac.setOpaque(false);
         add(ac);
-        // Button group
-        ButtonGroup group=new ButtonGroup();
+        
+        // Group
+        ButtonGroup group = new ButtonGroup();
         group.add(normal);
         group.add(ac);
-        // Save
+        
+        // Default selection
+        normal.setSelected(true);
+        
+        // Save Button
         TypeSave = new JButton("Save");
-
-        TypeSave.setBounds(10, 100, 100, 30);
-        TypeSave.setFont(new Font("Arial", Font.BOLD, 15));
+        TypeSave.setBounds(10, 130, 100, 30);
+        TypeSave.setFont(new Font("Arial", Font.BOLD, 14));
         TypeSave.setForeground(Color.WHITE);
         TypeSave.setBackground(Color.BLACK);
-
         TypeSave.setFocusPainted(false);
         TypeSave.setBorderPainted(false);
-        TypeSave.setContentAreaFilled(true);
         TypeSave.setOpaque(true);
-
+        
         add(TypeSave);
         TypeSave.addActionListener(this);
         // Default
@@ -131,16 +137,47 @@ public class UpdateBus extends JFrame implements ActionListener {
     UpdateBus() {
         setTitle("Update Value");
         title = new JLabel("Update Values");
-        title.setBounds(300, 5, 200, 20);
-        title.setFont(new Font("Arial", Font.BOLD, 15));
+        title.setBounds(150, 5,200, 30);
+        title.setFont(new Font("Arial", Font.BOLD,20));
         add(title);
-        TYPE();
+        selection=new JLabel("What do you want to Edit");
+        selection.setBounds(10,40,300,40);
+        selection.setFont(new Font("Arial", Font.BOLD,15));
+        add(selection);
+         // Name Button
+         Name = new JRadioButton("Bus Name");
+         Name.setBounds(10, 60, 120, 25);
+         Name.setFont(new Font("Roboto", Font.BOLD, 12));
+         Name.setOpaque(false);
+         add(Name);
+         
+         // Number Button
+         Number = new JRadioButton("Bus Number");
+         Number.setBounds(10, 90, 120, 25);   // Different Y position
+         Number.setFont(new Font("Roboto", Font.BOLD, 12));
+         Number.setOpaque(false);
+         add(Number);
+         //Type
+         Type = new JRadioButton("Bus Type");
+         Type.setBounds(10, 90, 120, 25);   // Different Y position
+         Type.setFont(new Font("Roboto", Font.BOLD, 12));
+         Type.setOpaque(false);
+         add(Type);
+         // Group
+         ButtonGroup group = new ButtonGroup();
+         group.add(Name);
+         group.add(Number);
+         group.add(Type);
+         
+         // Default selection
+         normal.setSelected(true);
+         
         // Default
-        // setLocation(600, 200);
-        // setLayout(null);
-        // setSize(800, 650);
-        // setVisible(true);
-        // setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocation(600, 200);
+        setLayout(null);
+        setSize(400,450);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     }
 
