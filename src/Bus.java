@@ -83,6 +83,15 @@ public class Bus extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if(save.isSelected()){
+            String namefield=nameField.getText();
+            String numberfield=numberField.getText();
+            String choice=null;
+            if(normal.isSelected()){
+                choice="Normal";
+            }
+            else if(ac.isSelected()){
+                choice="AC";
+            }
             
         }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
