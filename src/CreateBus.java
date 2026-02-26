@@ -6,13 +6,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Bus extends JFrame implements ActionListener {
+public class CreateBus extends JFrame implements ActionListener {
     JLabel title, Number, Name, Type;
     JTextField numberField, nameField;
     JRadioButton normal, ac;
     JButton save;
 
-    public Bus() {
+    public CreateBus() {
         setTitle("LNCT Bus Travel");
         title = new JLabel("LNCT Travel");
         title.setBounds(50, 5, 150, 50);
@@ -126,7 +126,7 @@ public class Bus extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new Bus();
+        new CreateBus();
     }
 
 }
