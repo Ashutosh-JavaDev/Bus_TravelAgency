@@ -22,6 +22,11 @@ public class UpdateBus extends JFrame implements ActionListener {
         title.setBounds(300, 5, 200, 20);
         title.setFont(new Font("Arial", Font.BOLD, 15));
         add(title);
+        // name
+        name=new JLabel("Enter New Bus Name");
+        name.setBounds(10,10,100,25);
+        name.setFont(new Font("Roboto", Font.BOLD, 10));
+        add(name);
         // Default
         setLocation(600, 200);
         setLayout(null);
