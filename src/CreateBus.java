@@ -145,6 +145,10 @@ public class CreateBus extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "Database Error: " + ex.getMessage());
             }
         }
+        if(e.getSource()==edit){
+            setVisible(false);
+           new UpdateBus().setVisible(true);
+        }
     }
 
     public static void main(String[] args) {
