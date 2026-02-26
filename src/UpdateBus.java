@@ -16,7 +16,8 @@ import java.awt.event.ActionListener;
 public class UpdateBus extends JFrame implements ActionListener {
     JLabel title, name, number, type;
     JTextField namField, numField, typeField;
-    JButton nameSave,numberSave,TypeSave,Save;
+    JButton nameSave, numberSave, TypeSave, Save;
+
     public void NAME() {
         // name
         name = new JLabel("Enter New Bus Name");
@@ -24,10 +25,10 @@ public class UpdateBus extends JFrame implements ActionListener {
         name.setFont(new Font("Roboto", Font.BOLD, 15));
         add(name);
         namField = new JTextField();
-        namField.setBounds(10, 60, 150,25);
+        namField.setBounds(10, 60, 150, 25);
         namField.setFont(new Font("Roboto", Font.BOLD, 10));
         add(namField);
-        // Saave
+        // Save
         nameSave = new JButton("Save");
 
         nameSave.setBounds(10, 100, 100, 30);
