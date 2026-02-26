@@ -16,9 +16,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class UpdateBus extends JFrame implements ActionListener {
-    JLabel title, name, number, type,selection;
+    JLabel title, name, number, type, selection;
     JTextField namField, numField;
-    JRadioButton normal,ac,Name,Number,Type;
+    JRadioButton normal, ac, Name, Number, Type;
     JButton nameSave, numberSave, TypeSave, Save;
 
     public void NAME() {
@@ -53,6 +53,7 @@ public class UpdateBus extends JFrame implements ActionListener {
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
+
     public void NUMBER() {
         // name
         number = new JLabel("Enter New Bus Number");
@@ -85,35 +86,36 @@ public class UpdateBus extends JFrame implements ActionListener {
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
+
     public void TYPE() {
         // name
         type = new JLabel("Choose New Bus Type");
         type.setBounds(10, 30, 200, 25);
         type.setFont(new Font("Roboto", Font.BOLD, 15));
         add(type);
-        
+
         // Normal Button
         normal = new JRadioButton("Normal");
         normal.setBounds(10, 60, 120, 25);
         normal.setFont(new Font("Roboto", Font.BOLD, 12));
         normal.setOpaque(false);
         add(normal);
-        
+
         // AC Button
         ac = new JRadioButton("AC");
-        ac.setBounds(10, 90, 120, 25);   // Different Y position
+        ac.setBounds(10, 90, 120, 25); // Different Y position
         ac.setFont(new Font("Roboto", Font.BOLD, 12));
         ac.setOpaque(false);
         add(ac);
-        
+
         // Group
         ButtonGroup group = new ButtonGroup();
         group.add(normal);
         group.add(ac);
-        
+
         // Default selection
         normal.setSelected(true);
-        
+
         // Save Button
         TypeSave = new JButton("Save");
         TypeSave.setBounds(10, 130, 100, 30);
@@ -123,7 +125,7 @@ public class UpdateBus extends JFrame implements ActionListener {
         TypeSave.setFocusPainted(false);
         TypeSave.setBorderPainted(false);
         TypeSave.setOpaque(true);
-        
+
         add(TypeSave);
         TypeSave.addActionListener(this);
         // Default
@@ -137,45 +139,54 @@ public class UpdateBus extends JFrame implements ActionListener {
     UpdateBus() {
         setTitle("Update Value");
         title = new JLabel("Update Values");
-        title.setBounds(150, 5,200, 30);
-        title.setFont(new Font("Arial", Font.BOLD,20));
+        title.setBounds(150, 5, 200, 30);
+        title.setFont(new Font("Arial", Font.BOLD, 20));
         add(title);
-        selection=new JLabel("What do you want to Edit");
-        selection.setBounds(10,40,300,40);
-        selection.setFont(new Font("Arial", Font.BOLD,15));
+        selection = new JLabel("What do you want to Edit");
+        selection.setBounds(10, 50, 300, 40);
+        selection.setFont(new Font("Arial", Font.BOLD, 17));
         add(selection);
-         // Name Button
-         Name = new JRadioButton("Bus Name");
-         Name.setBounds(10, 60, 120, 25);
-         Name.setFont(new Font("Roboto", Font.BOLD, 12));
-         Name.setOpaque(false);
-         add(Name);
-         
-         // Number Button
-         Number = new JRadioButton("Bus Number");
-         Number.setBounds(10, 90, 120, 25);   // Different Y position
-         Number.setFont(new Font("Roboto", Font.BOLD, 12));
-         Number.setOpaque(false);
-         add(Number);
-         //Type
-         Type = new JRadioButton("Bus Type");
-         Type.setBounds(10, 90, 120, 25);   // Different Y position
-         Type.setFont(new Font("Roboto", Font.BOLD, 12));
-         Type.setOpaque(false);
-         add(Type);
-         // Group
-         ButtonGroup group = new ButtonGroup();
-         group.add(Name);
-         group.add(Number);
-         group.add(Type);
-         
-         // Default selection
-         Name.setSelected(true);
-         
+        // Name Button
+        Name = new JRadioButton("Bus Name");
+        Name.setBounds(10, 100, 120, 25);
+        Name.setFont(new Font("Roboto", Font.BOLD, 12));
+        Name.setOpaque(false);
+        add(Name);
+
+        // Number Button
+        Number = new JRadioButton("Bus Number");
+        Number.setBounds(10, 130, 120, 25); // Different Y position
+        Number.setFont(new Font("Roboto", Font.BOLD, 12));
+        Number.setOpaque(false);
+        add(Number);
+        // Type
+        Type = new JRadioButton("Bus Type");
+        Type.setBounds(10, 160, 120, 25); // Different Y position
+        Type.setFont(new Font("Roboto", Font.BOLD, 12));
+        Type.setOpaque(false);
+        add(Type);
+        // Group
+        ButtonGroup group = new ButtonGroup();
+        group.add(Name);
+        group.add(Number);
+        group.add(Type);
+
+        // Default selection
+        Name.setSelected(true);
+        Save = new JButton("Save");
+        Save.setBounds(10, 130, 100, 30);
+        Save.setFont(new Font("Arial", Font.BOLD, 14));
+        Save.setForeground(Color.WHITE);
+        Save.setBackground(Color.BLACK);
+        Save.setFocusPainted(false);
+        Save.setBorderPainted(false);
+        Save.setOpaque(true);
+        add(Save);
+        Save.addActionListener(this);
         // Default
         setLocation(600, 200);
         setLayout(null);
-        setSize(400,450);
+        setSize(400, 450);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
