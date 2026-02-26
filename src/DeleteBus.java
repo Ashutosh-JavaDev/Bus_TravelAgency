@@ -1,9 +1,13 @@
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-
+import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -11,8 +15,8 @@ import java.awt.event.ActionListener;
 
 public class DeleteBus extends JFrame implements ActionListener {
     JLabel title, id;
-    JTextField  idField;
-    JButton  Allsa;    
+    JTextField idField;
+    JButton Allsa;
 
     DeleteBus() {
         setTitle("Delete Value");
@@ -25,7 +29,7 @@ public class DeleteBus extends JFrame implements ActionListener {
         id.setFont(new Font("Roboto", Font.BOLD, 15));
         add(id);
         idField = new JTextField();
-        idField.setBounds(10,85, 150, 25);
+        idField.setBounds(10, 85, 150, 25);
         idField.setFont(new Font("Roboto", Font.BOLD, 10));
         add(idField);
         // Save
@@ -54,6 +58,37 @@ public class DeleteBus extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == Allsa) {
+            String id = idField.getText();
+            if (id.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Insert Value first");
+            }
+            try (Connection conn = Database.getConnection();) {
+                String query = "select * from bus where ID=?";
+                PreparedStatement state = conn.prepareStatement(query);
+                state.setInt(1, Integer.parseInt(id));
+                ResultSet rs = state.executeQuery();
+                if (rs.next()) {
+                    String Squery = "delete from bus where ID=?";
+                    PreparedStatement pstate = conn.prepareStatement(Squery);
+                    pstate.setInt(1, Integer.parseInt(id));
+                    pstate.executeUpdate();
+
+                    JOptionPane.showMessageDialog(this, "Data Deleted");
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Data Not Found");
+
+                }
+
+            }
+
+            catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, e);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, e);
+            }
+        }
 
     }
 
