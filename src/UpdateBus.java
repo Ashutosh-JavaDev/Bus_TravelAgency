@@ -18,7 +18,7 @@ import java.awt.event.ActionListener;
 public class UpdateBus extends JFrame implements ActionListener {
     JLabel title, name, number, type, selection;
     JTextField namField, numField;
-    JRadioButton normal, ac, Name, Number, Type;
+    JRadioButton normal, ac, Name, Number, Type,All;
     JButton nameSave, numberSave, TypeSave, Save;
 
     public void NAME() {
@@ -139,7 +139,7 @@ public class UpdateBus extends JFrame implements ActionListener {
     UpdateBus() {
         setTitle("Update Value");
         title = new JLabel("Update Values");
-        title.setBounds(150, 5, 200, 30);
+        title.setBounds(80, 5, 200, 30);
         title.setFont(new Font("Arial", Font.BOLD, 20));
         add(title);
         selection = new JLabel("What do you want to Edit");
@@ -165,16 +165,22 @@ public class UpdateBus extends JFrame implements ActionListener {
         Type.setFont(new Font("Roboto", Font.BOLD, 12));
         Type.setOpaque(false);
         add(Type);
+        // All
+        All = new JRadioButton("All");
+        All.setBounds(10, 190, 120, 25); // Different Y position
+        All.setFont(new Font("Roboto", Font.BOLD, 12));
+        All.setOpaque(false);
+        add(All);
         // Group
         ButtonGroup group = new ButtonGroup();
         group.add(Name);
         group.add(Number);
         group.add(Type);
-
+        group.add(All);
         // Default selection
         Name.setSelected(true);
         Save = new JButton("Save");
-        Save.setBounds(10, 130, 100, 30);
+        Save.setBounds(10, 230, 100, 30);
         Save.setFont(new Font("Arial", Font.BOLD, 14));
         Save.setForeground(Color.WHITE);
         Save.setBackground(Color.BLACK);
@@ -186,7 +192,7 @@ public class UpdateBus extends JFrame implements ActionListener {
         // Default
         setLocation(600, 200);
         setLayout(null);
-        setSize(400, 450);
+        setSize(300, 350);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
